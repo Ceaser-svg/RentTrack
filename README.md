@@ -33,7 +33,7 @@ RentTrack centralizes rental records in a relational database and automates rent
 
 ## Database Design
 
-![ERD](/home/Ceaser/Desktop/databases/DB/src/renttrack.png)
+![ERD](https://github.com/Ceaser-svg/RentTrack/blob/main/RentTrack/renttrack.png)
 
 **Tables:** `users`, `properties`, `units`, `tenants`, `leases`, `invoices`, `payments`, `payment_allocations`, `ledger`
 
