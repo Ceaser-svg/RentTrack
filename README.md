@@ -33,10 +33,43 @@ RentTrack centralizes rental records in a relational database and automates rent
 
 ## Database Design
 
-The database includes these main tables: `users`, `properties`, `units`, `tenants`, `leases`, `invoices`, `payments`, and `ledger`.
+![ERD](database/erd.png)
 
-See the ERD in `database/erd.png` and design notes in `docs/design.md`.
+**Tables:** `users`, `properties`, `units`, `tenants`, `leases`, `invoices`, `payments`, `payment_allocations`, `ledger`
 
+**Views (reports):**
+- `v_lease_balances`: what each tenant has been charged, paid, and still owes
+- `v_invoice_summary`: each invoice with amount paid and remaining balance
+- `v_overdue_invoices`: arrears report
+- `v_property_occupancy`: occupied and vacant units per property
+- `v_monthly_collections` and `v_monthly_billed`: money received vs invoiced per month
+- `v_tenant_statement`: ledger lines with a running balance
+
+Key design choices:
+- A `ledger` table records every debit and credit, so balances can always be rebuilt.
+- `payment_allocations` lets one payment cover several invoices, or an invoice be paid in parts.
+- Foreign keys use `ON DELETE RESTRICT` so financial records are never deleted by accident.
+
+## Setup Instructions
+
+Requires **MySQL 8.0.16 or newer**.
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/[your-username]/renttrack.git
+   cd renttrack
+   ```
+2. Run the SQL scripts in this order (in DBeaver use **Alt+X**, or from the command line):
+   ```bash
+   mysql -u root -p < database/schema.sql
+   mysql -u root -p < database/seed.sql
+   mysql -u root -p < database/views.sql
+   ```
+3. Verify with:
+   ```sql
+   USE renttrack;
+   SELECT * FROM v_lease_balances;
+   ```
 ## Setup Instructions
 
 1. **Clone the repository**
