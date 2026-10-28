@@ -61,48 +61,28 @@ Key design choices:
 
 ## Setup Instructions
 
-Requires **MySQL 8.0.16 or newer**.
+Requires **MySQL 8.0.16 or newer** and PHP with the PDO MySQL extension.
 
-1. Clone the repository
+1. Create the database objects and sample data from the repository root:
    ```bash
-   git clone https://github.com/[your-username]/renttrack.git
-   cd renttrack
+   mysql -u root -p < schema.sql
+   mysql -u root -p < seed.sql
+   mysql -u root -p < views.sql
+   mysql -u root -p < triggers.sql
    ```
-2. Run the SQL scripts in this order (in DBeaver use **Alt+X**, or from the command line):
+2. Configure the app with your local database credentials:
    ```bash
-   mysql -u root -p < database/schema.sql
-   mysql -u root -p < database/seed.sql
-   mysql -u root -p < database/views.sql
-   mysql -u root -p < database/triggers.sql
+   cp app/config.example.php app/config.php
    ```
-3. Verify with:
-   ```sql
-   USE renttrack;
-   SELECT * FROM v_lease_balances;
+   Edit `app/config.php`; it is intentionally excluded from Git.
+3. Start the PHP development server:
+   ```bash
+   cd app
+   php -S localhost:8000
    ```
-## Setup Instructions
+4. Open `http://localhost:8000`.
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/[your-username]/renttrack.git
-   cd renttrack
-   ```
-2. **Create the database**
-   ```bash
-   [command to create the database]
-   ```
-3. **Run the SQL scripts in this order**
-   - `database/schema.sql`
-   - `database/views.sql`
-   - `database/triggers.sql`
-   - `database/seed.sql`
-4. **Configure environment variables**
-   Copy `.env.example` to `.env` and fill in your database details.
-5. **Install dependencies and start the app**
-   ```bash
-   [install and run commands]
-   ```
-6. Open the app at `http://localhost:[port]`.
+To verify the database setup, run `SELECT * FROM v_lease_balances;` after selecting the `renttrack` database.
 
 ## Sample Login Accounts
 
@@ -121,11 +101,12 @@ Requires **MySQL 8.0.16 or newer**.
 ## Project Structure
 
 ```
-database/   SQL scripts and ERD
-backend/    Server code and database connection
-frontend/   User interface
-docs/       Requirements, design notes, screenshots
-tests/      Test cases
+app/          PHP application
+schema.sql    Database schema
+seed.sql      Sample data
+views.sql     Reporting views and procedures
+triggers.sql  Database triggers
+RentTrack/    Existing database scripts and ERD image
 ```
 
 ## Future Improvements

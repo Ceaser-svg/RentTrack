@@ -1,0 +1,56 @@
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    background: #f2f4f7;
+    color: #1f2933;
+}
+
+nav {
+    background: #1f3a5f;
+    color: #fff;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav .brand { font-weight: 700; font-size: 1.1em; color: #fff; text-decoration: none; }
+nav .user { font-size: 0.9em; }
+nav a { color: #fff; margin-left: 16px; }
+
+main { max-width: 1100px; margin: 24px auto; padding: 0 16px; }
+h1 { margin-top: 0; }
+h2 { margin-top: 32px; font-size: 1.15em; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; }
+.card { background: #fff; border-radius: 8px; padding: 16px; box-shadow: 0 1px 4px rgba(0, 0, 0, .08); }
+.card .label { font-size: 0.85em; color: #52606d; }
+.card .value { font-size: 1.5em; font-weight: 700; margin-top: 4px; }
+.card.alert .value { color: #b00020; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 4px rgba(0, 0, 0, .08); }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #e4e7eb; white-space: nowrap; }
+th { background: #e9eef5; font-size: 0.85em; }
+td.num, th.num { text-align: right; }
+tr:last-child td { border-bottom: none; }
+
+.owes { color: #b00020; font-weight: 600; }
+.ok { color: #1b7f3b; }
+.empty { background: #fff; padding: 16px; border-radius: 8px; color: #52606d; }
+
+.flash { background: #e3f6e8; color: #1b5e30; padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; }
+.form-error { background: #fdecea; color: #b00020; padding: 12px 16px; border-radius: 8px; margin-bottom: 16px; }
+
+.form-box { background: #fff; border-radius: 8px; padding: 24px; max-width: 520px; box-shadow: 0 1px 4px rgba(0, 0, 0, .08); }
+.form-box label { display: block; margin-top: 14px; font-weight: 600; font-size: 0.9em; }
+.form-box input, .form-box select { width: 100%; padding: 9px; margin-top: 4px; font-size: 1em; }
+.form-box button { margin-top: 20px; padding: 10px 20px; font-size: 1em; cursor: pointer; }
+.hint { font-size: 0.85em; color: #52606d; font-weight: normal; }
+
+.badge { display: inline-block; padding: 2px 10px; border-radius: 10px; font-size: 0.8em; font-weight: 600; }
+.badge.paid { background: #e3f6e8; color: #1b5e30; }
+.badge.overdue { background: #fdecea; color: #b00020; }
+.badge.partial { background: #fff4d6; color: #7a5b00; }
+.badge.unpaid { background: #e9eef5; color: #3e4c59; }

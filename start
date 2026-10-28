@@ -1,0 +1,6 @@
+systemctl status mysqld
+
+sudo systemctl start mysqld
+
+cd ~/Desktop/databases/RentTrack/app
+php -S localhost:8000
