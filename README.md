@@ -2,9 +2,9 @@
 
 A web application backed by a relational database that helps landlords manage properties, tenants, rent invoices, and payments.
 
-**Author:** [OGWARA CEASER]
-**Course:** [DATABASE PROGRAMMNG]
-**Institution:** [MBARARA UNIVERSIRTY OF SCIENCE AND TECHNOLOGY]
+**Author:** OGWARA CEASER
+**Course:** DATABASE PROGRAMMNG
+**Institution:** MBARARA UNIVERSIRTY OF SCIENCE AND TECHNOLOGY
 
 ## Problem
 
