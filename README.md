@@ -27,9 +27,9 @@ RentTrack centralizes rental records in a relational database and automates rent
 
 ## Tech Stack
 
-- **Frontend:** [e.g. HTML, CSS, JavaScript]
-- **Backend:** [e.g. PHP / Node.js / Python]
-- **Database:** [e.g. MySQL / PostgreSQL]
+- **Frontend:** HTML
+- **Backend:** PHP
+- **Database:** MySQL
 
 ## Database Design
 
